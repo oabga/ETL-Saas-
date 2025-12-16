@@ -10,7 +10,7 @@ JWKS_URL = "https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_LZU2
 CLIENT_ID = "6v29eis60gqjicijhirvp22of"
 ISSUER = "https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_LZU2SXqyz"
 
-# Fetch JWKS một lần (cache)
+
 jwks = requests.get(JWKS_URL).json()
 
 def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
@@ -32,4 +32,4 @@ def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(securit
         return payload
     except JWTError as e:
         raise HTTPException(status_code=401, detail="Invalid token")
-    
+        
