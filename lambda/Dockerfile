@@ -10,6 +10,7 @@ COPY requirements.txt .
 
 RUN pip install --prefer-binary -r requirements.txt
 
-COPY handler.py .
+# Copy all Python modules (handler + helpers)
+COPY *.py .
 
 CMD [ "handler.lambda_handler" ]
